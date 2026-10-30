@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: #09080d;
+  color: #fff;
+}
+
+/* Studio */
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+@keyframes studio-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6%, -4%, 0) scale(1.12); }
+}
+@keyframes studio-shimmer {
+  from { background-position: 0% 50%; }
+  to { background-position: 200% 50%; }
+}
+.studio-aurora {
+  animation: studio-drift 18s ease-in-out infinite;
+}
+.studio-shimmer {
+  background-size: 200% 100%;
+  animation: studio-shimmer 6s linear infinite;
+}
+.studio-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-aurora, .studio-shimmer { animation: none; }
+}
